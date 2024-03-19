@@ -1,0 +1,8 @@
+<div class="container">
+    <textarea [(ngModel)]="userInput" placeholder="Insira um comando ou descrição"></textarea>
+    <button (click)="generateText()">Gerar Documentação</button>
+    <div *ngIf="generatedText !== ''" class="response-container">
+      <h3>Resposta Gerada:</h3>
+      <p>{{ generatedText }}</p>
+    </div>
+  </div>

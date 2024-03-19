@@ -1,0 +1,38 @@
+<div class="container" *ngIf="currentUser">
+  <div class="notes">
+    <h2>Suas notas diárias</h2>
+    <mat-card *ngFor="let note of userNotes">
+      <mat-card-title class="titleCard">{{ note.date }}</mat-card-title>
+      <mat-card-content class="contentCard">
+        <p>Ontem: {{ note.yesterday }}</p>
+        <p>Hoje: {{ note.today }}</p>
+        <p>Impedimentos: {{ note.impediments }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="tasks">
+    <h2>Suas tarefas</h2>
+    <mat-card *ngFor="let task of filteredUserTasks">
+      <mat-card-title class="titleCard">{{ task.title }}</mat-card-title>
+      <mat-card-content class="contentCard">
+        <p>Descrição: {{ task.description }}</p>
+
+        <p>Status atual: {{ taskStatusCurrent }}</p>
+        <button mat-raised-button color="primary" class="status-running-button" (click)="changeStatus(task.id, 'Em Andamento')">Em Andamento</button>
+        <button mat-raised-button color="accent" class="status-done-button" (click)="changeStatus(task.id, 'Completo')">Completo</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="teams">
+    <h2>Seus times</h2>
+    <mat-card *ngFor="let team of userTeams">
+      <mat-card-title  class="titleCard">{{ team.name }}</mat-card-title>
+      <mat-card-content class="contentCard">
+        <p>{{ team.description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

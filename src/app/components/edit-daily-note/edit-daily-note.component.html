@@ -1,0 +1,20 @@
+<div class="container">
+<form>
+  <mat-card class="cardStyle">
+    <mat-card-header class="subtitle">
+      <mat-card-subtitle>Editar Tarefas</mat-card-subtitle>
+    </mat-card-header>
+    <mat-form-field>
+      <input matInput placeholder="Ontem" [(ngModel)]="noteToEdit.yesterday" name="yesterday">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Hoje" [(ngModel)]="noteToEdit.today" name="today">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Impedimentos" [(ngModel)]="noteToEdit.impediments" name="impediments">
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" class="save-button" (click)="saveChanges()">Salvar Alterações</button>
+  </mat-card>
+  </form>
+</div>

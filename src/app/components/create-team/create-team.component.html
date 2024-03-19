@@ -1,0 +1,54 @@
+<div class="container">  
+  <form class="tem-form" (ngSubmit)="onSubmit()">
+  <mat-card class="cardStyle">
+    <mat-card-header class="subtitle">
+      <mat-card-title>Criar Equipe</mat-card-title>
+    </mat-card-header>
+  <mat-form-field appearance="fill">
+    <mat-label>Nome da Equipe</mat-label>
+    <input matInput id="teamName" name="teamName" [(ngModel)]="team.name" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput id="description" name="description" [(ngModel)]="team.description" required></textarea>
+  </mat-form-field>
+  <mat-card-actions>
+  <button mat-raised-button color="primary" class="add-note-button"  type="submit">Criar Equipe</button>
+  </mat-card-actions>
+</mat-card>
+
+</form>
+
+<mat-card class="cardStyle" *ngIf="userTeams && userTeams.length > 0" style="margin-top: 20px">
+  <mat-card-content>
+    <h3>Suas Equipes</h3>
+
+    <table mat-table [dataSource]="userTeams" class="mat-elevation-z8">
+      <!-- Colunas da tabela -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let team"> {{ team.name }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Descrição </th>
+        <td mat-cell *matCellDef="let team"> {{ team.description }} </td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="subscribe">
+        <th mat-header-cell *matHeaderCellDef> Inscrever-se </th>
+        <td mat-cell *matCellDef="let team">
+          <button mat-raised-button color="primary" class="add-sub-button" (click)="subscribeToTeam(team.id)">Inscrever-se</button>
+        </td>
+      </ng-container> -->
+
+      <!-- Linhas da tabela -->
+      <tr mat-header-row *matHeaderRowDef="['name', 'description']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['name', 'description'];"></tr>
+      
+    </table>
+
+  </mat-card-content>
+</mat-card>
+</div>

@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  min-width: 77vw;
+}
+
+.sidenav-container {
+    height: 100vh; /* Define a altura total da janela de visualização */
+  }
+  
+  .sidenav {
+    width: 200px;
+    background-color: #f0f0f0; /* Cor de fundo para sidenav (apenas para ilustração) */
+  }
+  
+  .mat-sidenav-content {
+    display: flex; /* Adiciona flexbox para alinhamento vertical */
+    flex-direction: column; /* Define a direção da coluna para os elementos */
+  }
+  
+  .router-content {
+    margin-left: 20px; /* Margem à esquerda para criar espaço entre o sidenav e o router-outlet */
+  }
+
+  .mat-icon {
+   
+    height: 25px !important;
+    width:50px !important;
+  }
+
+  :host {
+    margin: auto; /* Margens automáticas */
+    width: 100%; /* Largura da aplicação */
+    height: 100vh; /* Ocupa a altura total da tela */
+  }
+
+  .spacer {
+    flex: 1;
+  }
+  
+  .menu-items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mat-toolbar.mat-primary{
+    background: #283593;
+    min-height: 100px;
+  }
+
+  .btnsTopo{
+    background: none;
+    color: #FFFFFF;
+    border: 0px;
+    font-size: 14px;
+  }

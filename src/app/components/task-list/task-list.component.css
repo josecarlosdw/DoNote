@@ -1,0 +1,72 @@
+:host {
+    display: block;
+    min-width: 75vw;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+  }
+  
+  .team-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 500px;
+  }
+  .cardStyle {
+    padding: 20px; 
+    width: 500px;
+  }
+
+  button.add-task-button {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: 0px;
+  }
+
+  .adjustTask{
+    padding-right: 15px;
+  }
+
+  .subtitle{
+    margin-bottom: 20px;
+  }
+
+  .adjustTask {
+    width: 100%; /* Define a largura total do campo */
+    display: block; /* Garante que cada campo esteja em sua própria linha */
+    margin-bottom: 10px; /* Adiciona espaço entre os campos */
+  }
+
+  button.status-done-button {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin: 0px 5px;
+    font-size: 14px;
+    border: 0px;
+  }
+
+  
+  button.status-running-button {
+    background-color: #238ac5;
+    color: white;
+    border-radius: 8px;
+    margin: 0px 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: 0px;
+  }
+
+  @media (max-width: 600px){
+    .cardStyle {
+      width: 95%;
+    }
+  }

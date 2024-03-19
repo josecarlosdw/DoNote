@@ -1,0 +1,80 @@
+<div class="container">
+<mat-card class="cardStyle">
+  <mat-card-header>
+    <mat-card-title><p>Criar Notas</p></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="form-container">
+      <mat-form-field>
+        <mat-label>Ontem</mat-label>
+        <input matInput [(ngModel)]="newNote.yesterday" placeholder="Ontem">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Hoje</mat-label>
+        <input matInput [(ngModel)]="newNote.today" placeholder="Hoje">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Impedimentos</mat-label>
+        <input matInput [(ngModel)]="newNote.impediments" placeholder="Impedimentos">
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" class="add-note-button" (click)="addDailyNote()">Adicionar Notação</button>
+  </mat-card-actions>
+</mat-card>
+  
+  <div *ngIf="dailyService.getAllDailyNotes(userId).length > 0; else noNotes">
+    <mat-card class="cardStyle">
+      <mat-card-header>
+        <mat-card-subtitle>Notações Diárias</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table mat-table [dataSource]="dailyService.getAllDailyNotes(userId)" class="mat-elevation-z8">
+          <!-- Colunas da tabela -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Data </th>
+          <td mat-cell *matCellDef="let note"> {{ note.date }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="yesterday">
+          <th mat-header-cell *matHeaderCellDef> Ontem </th>
+          <td mat-cell *matCellDef="let note"> {{ note.yesterday }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="today">
+          <th mat-header-cell *matHeaderCellDef> Hoje </th>
+          <td mat-cell *matCellDef="let note"> {{ note.today }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="impediments">
+          <th mat-header-cell *matHeaderCellDef> Impedimentos </th>
+          <td mat-cell *matCellDef="let note"> {{ note.impediments }} </td>
+        </ng-container>
+  
+          <!-- Coluna de botões -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let note">
+              <button mat-icon-button color="primary" (click)="editNote(note)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteNote(note)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+  
+          <!-- Linhas da tabela -->
+          <tr mat-header-row *matHeaderRowDef="['date', 'yesterday', 'today', 'impediments', 'actions']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['date', 'yesterday', 'today', 'impediments', 'actions'];"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <ng-template #noNotes>
+    <p>Nenhuma nota disponível.</p>
+  </ng-template>
+</div>

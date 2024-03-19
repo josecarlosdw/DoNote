@@ -1,0 +1,30 @@
+<div class="container">
+<form>
+  <mat-card class="cardStyle">
+    <mat-card-header class="subtitle">
+      <mat-card-title>Entrar</mat-card-title>
+    </mat-card-header>
+    
+    <mat-form-field>
+      <input matInput placeholder="Email" [(ngModel)]="account.email" name="email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Senha" [(ngModel)]="account.password" type="password" name="password">
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" class="add-note-button" (click)="login()">Login</button>
+    </mat-card-actions>
+  </mat-card>
+  </form>
+  
+  <div class="infoLogin">
+  <div *ngIf="isUserAuthenticated">
+    <p>Login bem-sucedido! Redirecionando...</p>
+  </div>
+  <div *ngIf="!isUserAuthenticated && isLoginAttempted">
+    <p>Login falhou. Usuário ou senha incorretos.</p>
+  </div>
+</div>
+
+</div>

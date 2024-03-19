@@ -1,0 +1,31 @@
+<div class="section section1">
+  <h1>Faça mais rápido com DoNote!</h1>
+  <p>Organize suas notas de Daily, Tarefas e Equipes</p>
+</div>
+
+
+
+<div class="section section2">
+  <div class="item">
+    <button>
+      <img class="imgItens" src="assets/images/anotation.jpg" alt="Create Notes Icon">
+    </button>
+    <a routerLink="/daily-notes" routerLinkActive="active-link"><h3>Crie Notações</h3></a>
+  </div>
+  <div class="item">
+    <button>
+      <img class="imgItens" src="assets/images/tasks.jpg" alt="Create Tasks Icon">
+    </button>
+    <a [routerLink]="['/task-list', teamId]" routerLinkActive="active-link"><h3>Crie Tarefas</h3></a>
+  </div>
+  <div class="item">
+    <button>
+      <img class="imgItens" src="assets/images/teams.jpg" alt="Create Teams Icon">
+    </button>
+   <a routerLink="/createTeam" routerLinkActive="active-link"><h3>Crie Equipes</h3></a>
+  </div>
+</div>
+
+<footer class="section section4">
+  <p>&copy; 2023 DoNote</p>
+</footer>
